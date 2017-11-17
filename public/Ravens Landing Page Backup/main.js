@@ -1,0 +1,1 @@
+//onclick="$('canvas').css('display', 'none'); $('#landingPage').css('display', 'none'); $('body').css('overflow', 'visible')" For landing page to go away.

@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    title Ravens
+    link(rel='stylesheet', type='text/css', href='main.css')
+    script(src='https://code.jquery.com/jquery-3.2.1.js', integrity='sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=', crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Great+Vibes', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet')
+  body
+    #landingPage
+      #container
+      script(src='ThreeJS/three.min.js')
+      script(src='ThreeJS/Projector.js')
+      script(src='ThreeJS/CanvasRenderer.js')
+      script(src='ThreeJS/stats.min.js')
+      script(src='ThreeJS/birds.js')
+      script(type='text/javascript', src='mainBirds.js')
+      #intro
+        h1 Ravens
+        h2 No Login Required Chat Rooms
+        input#startNewBtn(type='button', value='Create New Chat Room')
+        input#browseBtn(type='button', value='Browse Chat Rooms')
+        p
+          | Coded and Designed by 
+          a(href='https://github.com/DevTrader', target='_blank') Nicolas Kao
+    script(type='text/javascript', src='main.js')
+
+
+
+

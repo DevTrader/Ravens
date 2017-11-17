@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', media='screen')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    if (error && error.length > 0)
+      br
+      h4.error-msg= error
+      br
+    script(src='https://code.jquery.com/jquery.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+    script(src='https://cdn.socket.io/socket.io-1.2.0.js')
+  
+ 
+    script(type='text/javascript', src='http://localhost:3000/js/socket.js')
+
+    block content
+
+     
+
+
