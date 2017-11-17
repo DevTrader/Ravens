@@ -12,15 +12,21 @@
 
         });
 
+        let room = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
         $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
+          socket.emit('chat message', {text: $('#m').val(), url: room});
           $('#m').val('');
           return false;
         });
+
         socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
-          window.scrollTo(0, document.body.scrollHeight);
+          if(msg.url == room){
+            $('#messages').append($('<li>').text(msg.text));
+            window.scrollTo(0, document.body.scrollHeight);
+          }else{
+            console.log(msg);
+          }
         });
 
         // $('form').submit(function(){

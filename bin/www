@@ -23,12 +23,14 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 io.on('connection',function(socket){
+  console.log('hi');
   socket.on('position', function(msg){
     //console.log(msg);
    io.emit('draw', msg);
   });
 
   socket.on('chat message', function(msg){
+    console.log(msg);
     io.emit('chat message', msg);
   });
 }); 
