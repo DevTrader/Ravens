@@ -6,27 +6,27 @@ const chatRoom = require('../models/chatroom');
 
 const router = express.Router();
 
-
+//Render Landing Page
 router.get('/', (req, res) => {
     res.render('home');
     //response.sendFile(__dirname + '/public/index.html');
 });
 
+// Create Room 
 router.post('/createRoom', (req, res) => {
 
     console.log('Create Room');
 
     var n = new chatRoom();
 
-    n.name = randomEl(adjectives)+' '+randomEl(nouns);
+    n.name = randomEl(adjectives)+' '+randomEl(nouns)+' Room';
     n.save(function(err,room) {
         console.log(room.id);
         res.send({redirect:`/room/${room.id}`}); 
-    }); 
+    });
 });
 
-
-
+//Render Room With Unique ID
 router.get('/room/:id', (req, res) => {
     console.log(req.params);
     chatRoom
@@ -40,6 +40,7 @@ router.get('/room/:id', (req, res) => {
 
 });
 
+//Populate Browse Page with Existing Rooms
 router.get('/browse', (req, res) => {
     chatRoom
         .find()
@@ -50,15 +51,38 @@ router.get('/browse', (req, res) => {
         })
         .catch(err =>{throw err});
 
-    
 })
 
+//Name Randomizer
 function randomEl(list) {
     var i = Math.floor(Math.random() * list.length);
     return list[i];
 }
 
-var adjectives = ["adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish", "calamitous", "caustic", "cerulean", "comely", "concomitant", "contumacious", "corpulent", "crapulous", "defamatory", "didactic", "dilatory", "dowdy", "efficacious", "effulgent", "egregious", "endemic", "equanimous", "execrable", "fastidious", "feckless", "fecund", "friable", "fulsome", "garrulous", "guileless", "gustatory", "heuristic", "histrionic", "hubristic", "incendiary", "insidious", "insolent", "intransigent", "inveterate", "invidious", "irksome", "jejune", "jocular", "judicious", "lachrymose", "limpid", "loquacious", "luminous", "mannered", "mendacious", "meretricious", "minatory", "mordant", "munificent", "nefarious", "noxious", "obtuse", "parsimonious", "pendulous", "pernicious", "pervasive", "petulant", "platitudinous", "precipitate", "propitious", "puckish", "querulous", "quiescent", "rebarbative", "recalcitant", "redolent", "rhadamanthine", "risible", "ruminative", "sagacious", "salubrious", "sartorial", "sclerotic", "serpentine", "spasmodic", "strident", "taciturn", "tenacious", "tremulous", "trenchant", "turbulent", "turgid", "ubiquitous", "uxorious", "verdant", "voluble", "voracious", "wheedling", "withering", "zealous"];
-var nouns = ["ninja", "chair", "pancake", "statue", "unicorn", "rainbows", "laser", "senor", "bunny", "captain", "nibblets", "cupcake", "carrot", "gnomes", "glitter", "potato", "salad", "toejam", "curtains", "beets", "toilet", "exorcism", "stick figures", "mermaid eggs", "sea barnacles", "dragons", "jellybeans", "snakes", "dolls", "bushes", "cookies", "apples", "ice cream", "ukulele", "kazoo", "banjo", "opera singer", "circus", "trampoline", "carousel", "carnival", "locomotive", "hot air balloon", "praying mantis", "animator", "artisan", "artist", "colorist", "inker", "coppersmith", "director", "designer", "flatter", "stylist", "leadman", "limner", "make-up artist", "model", "musician", "penciller", "producer", "scenographer", "set decorator", "silversmith", "teacher", "auto mechanic", "beader", "bobbin boy", "clerk of the chapel", "filling station attendant", "foreman", "maintenance engineering", "mechanic", "miller", "moldmaker", "panel beater", "patternmaker", "plant operator", "plumber", "sawfiler", "shop foreman", "soaper", "stationary engineer", "wheelwright", "woodworkers"];
+var adjectives = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
+var nouns = ["Ninja", "Chair", "Pancake", "Statue", "Unicorn", "Rainbows", "Laser", "Senor", "Bunny", "Captain", "Nibblets", "Cupcake", "Carrot", "Gnomes", "Glitter", "Potato", "Salad", "Toejam", "Curtains", "Beets", "Toilet", "Exorcism", "Stick Figures", "Mermaid Eggs", "Sea Barnacles", "Dragons", "Jellybeans", "Snakes", "Dolls", "Bushes", "Cookies", "Apples", "Ice Cream", "Ukulele", "Kazoo", "Banjo", "Opera Singer", "Circus", "Trampoline", "Carousel", "Carnival", "Locomotive", "Hot Air Balloon", "Praying Mantis", "Animator", "Artisan", "Artist", "Colorist", "Inker", "Coppersmith", "Director", "Designer", "Flatter", "Stylist", "Leadman", "Limner", "Make-up Artist", "Model", "Musician", "Penciller", "Producer", "Scenographer", "Set Decorator", "Silversmith", "Teacher", "Auto Mechanic", "Beader", "Bobbin Boy", "Clerk", "Station Attendant", "Foreman", "Maintenance Engineering", "Mechanic", "Miller", "Moldmaker", "Panel Beater", "Patternmaker", "Plant Operator", "Plumber", "Sawfiler", "Shop Foreman", "Soaper", "Stationary Engineer", "Wheelwright", "Woodworkers", "Giraffes", "Elephant", "Alien", "Raven", "Dog", "Cat", "Fish", "Eagle", "Shark"];
+
+
+router.post('/room/chatMsg', (req, res) => {
+    console.log(req.body);
+    chatRoom.update({_id: req.body.room}, {$push: {chats: req.body}})
+    .exec()
+    .then(rooms => {
+            console.log(rooms);
+        })
+    .catch(err =>{throw err});
+});
+
+router.put('/updateRoom/:id', (req, res) => {
+    chatRoom.update({_id: req.params.id}, {$set: {name: req.body.contents}})
+    .exec()
+    .then(rres => {
+            console.log(rres);
+            res.end();
+        })
+    .catch(err =>{throw err});
+
+})
+
 
 module.exports = router;

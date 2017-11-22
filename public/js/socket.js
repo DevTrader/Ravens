@@ -16,6 +16,9 @@
 
         $('form').submit(function(){
           socket.emit('chat message', {text: $('#m').val(), url: room});
+          
+          $.post('chatMsg',{'msg': $('#m').val(), 'room': room}, function(){});
+
           $('#m').val('');
           return false;
         });

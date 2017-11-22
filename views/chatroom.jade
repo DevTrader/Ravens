@@ -1,12 +1,14 @@
 extends layout
 
-
+link(rel='stylesheet', type='text/css', href='chatRoomMain.css')
 
 block content
 
- h1 #{room.name}
+ h1#roomName(contenteditable='true') #{room.name}
 
  ul#messages
+ each chat in room.chats
+  li #{chat.msg}
  form(action='')
    input#m(autocomplete='off')
    button Send

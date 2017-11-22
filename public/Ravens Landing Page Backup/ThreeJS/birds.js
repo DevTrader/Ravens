@@ -1,9 +1,9 @@
 var Bird = function () {
-
+	
 	var scope = this;
 
 	THREE.Geometry.call( this );
-
+	console.log(this);
 	v(   5,   0,   0 );
 	v( - 5, - 2,   1 );
 	v( - 5,   0,   0 );

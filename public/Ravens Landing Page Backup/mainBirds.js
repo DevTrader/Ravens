@@ -317,7 +317,7 @@ var Boid = function() {
 				boids = [];
 				//This is the count, if i<200, there will be 199 birds on the screen
 				for ( var i = 0; i < 200; i ++ ) {
-
+					console.log('test');
 					boid = boids[ i ] = new Boid();
 					boid.position.x = Math.random() * 400 - 200;
 					boid.position.y = Math.random() * 400 - 200;

@@ -16,3 +16,12 @@ a {
   #messages li:nth-child(odd) { background: #eee; }
   #messages { margin-bottom: 40px }
 
+@keyframes success {
+	0% {background: white;}
+	50% {background: lightgreen;}
+}
+
+.roomNameSuccess {
+	animation: success 1s;
+}
+

@@ -83,6 +83,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
+
 // io.on('connection',function(socket){
 //   socket.on('position', function(msg){
 //     console.log(msg);

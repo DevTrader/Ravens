@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
+
 const chatRoom = new Schema({
-	name: String
+	name: String,
+	chats: Array
+
 });
 
 
