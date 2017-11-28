@@ -4,13 +4,8 @@
 
         $(window).on('mousemove', function(e){
             // console.log(e.pageX, e.pageY);
-            socket.emit('position', [e.pageX, e.pageY]);
+            // socket.emit('position', [e.pageX, e.pageY]);
           });
-
-        socket.on('draw', function(p){
-          //console.log(p);
-
-        });
 
         let room = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 

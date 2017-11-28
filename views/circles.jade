@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+  head
+    link(rel='stylesheet', type='text/css', href='CanvasClickCircles/styleCircles.css')
+    title
+  body
+    canvas
+    script(type='text/javascript').
+       var local_data =!{JSON.stringify(data)}
+    script(type='text/javascript', src='CanvasClickCircles/mainCircles.js')

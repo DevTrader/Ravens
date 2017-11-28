@@ -16,10 +16,10 @@ router.get('/', (req, res) => {
 router.post('/createRoom', (req, res) => {
 
     console.log('Create Room');
-
+    let chatColor = randomEl(adjectives);
     var n = new chatRoom();
-
-    n.name = randomEl(adjectives)+' '+randomEl(nouns)+' Room';
+    n.color = chatColor;
+    n.name = chatColor+' '+randomEl(nouns)+' Room';
     n.save(function(err,room) {
         console.log(room.id);
         res.send({redirect:`/room/${room.id}`}); 
@@ -48,6 +48,18 @@ router.get('/browse', (req, res) => {
         .then(rooms => {
             console.log(rooms);
             res.render('browse', {rooms:rooms});
+        })
+        .catch(err =>{throw err});
+
+})
+
+router.get('/circles', (req, res) => {
+    chatRoom
+        .find()
+        .exec()
+        .then(rooms => {
+            console.log(rooms);
+            res.render('circles', {data: rooms});
         })
         .catch(err =>{throw err});
 

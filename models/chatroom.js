@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 
 const chatRoom = new Schema({
 	name: String,
-	chats: Array
+	chats: Array,
+	color: String
 
 });
 

@@ -25,3 +25,28 @@ a {
 	animation: success 1s;
 }
 
+.browseList {
+  list-style: none;
+  padding-top: 10px;
+  font-size: 2em;
+}
+
+.browseList a {
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.browseList a:hover{
+  background: #eaeaea;
+  padding-right: 200px;
+  border-right: 10px solid orange;
+}
+
+#roomName{
+  transition: all 0.4s
+}
+
+#roomName:hover{
+  cursor: pointer;
+  color: limegreen;
+}

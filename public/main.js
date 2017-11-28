@@ -36,8 +36,7 @@ $('document').ready(function() {
               setTimeout(function(){
                 $('#roomName').removeClass('roomNameSuccess');
               }, 1000);
-              
-              
+            
               //Add response to success
             }
         });  
