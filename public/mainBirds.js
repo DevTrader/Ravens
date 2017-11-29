@@ -313,13 +313,11 @@ var Boid = function() {
 					light1.position.set (0, 0, 200);
 					scene.add(light1);
 
-					light2.position.set (0, 100, 100);
-					scene.add(light2);
 
 					birds = [];
 					boids = [];
 					//This is the count, if i<200, there will be 199 birds on the screen
-					for ( var i = 0; i < 150; i ++ ) {
+					for ( var i = 0; i < 80; i ++ ) {
 
 						boid = boids[ i ] = new Boid();
 						boid.position.x = Math.random() * 400 - 200;
