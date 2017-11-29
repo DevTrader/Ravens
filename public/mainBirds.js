@@ -319,9 +319,9 @@ var Boid = function() {
 						boid.position.x = Math.random() * 400 - 200;
 						boid.position.y = Math.random() * 400 - 200;
 						boid.position.z = Math.random() * 400 - 200;
-						boid.velocity.x = Math.random() * 2 - 1;
-						boid.velocity.y = Math.random() * 2 - 1;
-						boid.velocity.z = Math.random() * 2 - 1;
+						boid.velocity.x = Math.random() * 20 - 1;
+						boid.velocity.y = Math.random() * 20 - 1;
+						boid.velocity.z = Math.random() * 20 - 1;
 						boid.setAvoidWalls( true );
 						boid.setWorldSize( 500, 500, 400 );
 
