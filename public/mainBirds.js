@@ -302,13 +302,10 @@ var Boid = function() {
 			function init() {
 				// Media query
 				 if (mq.matches) {
-				 	camera = new THREE.PerspectiveCamera( 65, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 ); // camera, you can modify perspective and angle - Nicolas
-					camera.position.z = 250; //Default was 400, at 200 the camera is inside the flock initialization
+				 	camera = new THREE.PerspectiveCamera( 65, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 1000 ); // camera, you can modify perspective and angle - Nicolas
+					camera.position.z = 400; //Default was 400, at 200 the camera is inside the flock initialization
 
 					scene = new THREE.Scene();
-
-					light3.position.set (0, 400, 250);
-					scene.add(light3);
 
 					birds = [];
 					boids = [];
@@ -319,9 +316,9 @@ var Boid = function() {
 						boid.position.x = Math.random() * 400 - 200;
 						boid.position.y = Math.random() * 400 - 200;
 						boid.position.z = Math.random() * 400 - 200;
-						boid.velocity.x = Math.random() * 20 - 1;
-						boid.velocity.y = Math.random() * 20 - 1;
-						boid.velocity.z = Math.random() * 20 - 1;
+						boid.velocity.x = Math.random() * 2 - 1;
+						boid.velocity.y = Math.random() * 2 - 1;
+						boid.velocity.z = Math.random() * 2 - 1;
 						boid.setAvoidWalls( true );
 						boid.setWorldSize( 500, 500, 400 );
 
