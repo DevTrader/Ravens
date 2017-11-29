@@ -293,7 +293,7 @@ var Boid = function() {
 			let light = new THREE.AmbientLight(0xa2a, 3);
 			let light1 = new THREE.PointLight(0xd47000, 0.2);
 			let light2 = new THREE.PointLight(0xa26900, 4, 350);
-			let light3 = new THREE.AmbientLight(0x2172ce, 5);
+			let light3 = new THREE.AmbientLight(0x2172ce, 1);
 
 
 			init();
@@ -307,10 +307,19 @@ var Boid = function() {
 
 					scene = new THREE.Scene();
 
+					light3.position.set (0, 400, 250);
+					scene.add(light3);
+
+					light1.position.set (0, 0, 200);
+					scene.add(light1);
+
+					light2.position.set (0, 100, 100);
+					scene.add(light2);
+
 					birds = [];
 					boids = [];
 					//This is the count, if i<200, there will be 199 birds on the screen
-					for ( var i = 0; i < 50; i ++ ) {
+					for ( var i = 0; i < 150; i ++ ) {
 
 						boid = boids[ i ] = new Boid();
 						boid.position.x = Math.random() * 400 - 200;
@@ -322,7 +331,7 @@ var Boid = function() {
 						boid.setAvoidWalls( true );
 						boid.setWorldSize( 500, 500, 400 );
 
-						bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
+						bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshLambertMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
 						bird.phase = Math.floor( Math.random() * 62.83 );
 						scene.add( bird ); // Yes, the bird is being added to the scene here, I can possibly copy this code to have a single red bird.
 				 	}
@@ -365,7 +374,11 @@ var Boid = function() {
 
 				}
 
-				renderer = new THREE.WebGLRenderer({alpha: true});
+				if (mq.matches) {
+					renderer = new THREE.WebGLRenderer({alpha: true});
+				}else{
+					renderer = new THREE.CanvasRenderer({alpha: true});
+				};
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 
