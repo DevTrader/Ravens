@@ -365,7 +365,7 @@ var Boid = function() {
 
 				}
 
-				renderer = new THREE.CanvasRenderer({alpha: true});
+				renderer = new THREE.WebGLRenderer({alpha: true});
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 
