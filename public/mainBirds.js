@@ -1,3 +1,4 @@
+const mq = window.matchMedia( "(max-width: 1000px)" );
 var Boid = function() {
 
 				var vector = new THREE.Vector3(),
@@ -292,46 +293,78 @@ var Boid = function() {
 			let light = new THREE.AmbientLight(0xa2a, 3);
 			let light1 = new THREE.PointLight(0xd47000, 0.2);
 			let light2 = new THREE.PointLight(0xa26900, 4, 350);
+			let light3 = new THREE.AmbientLight(0x2172ce, 5);
 
 
 			init();
 			animate();
 
 			function init() {
+				// Media query
+				 if (mq.matches) {
+				 	camera = new THREE.PerspectiveCamera( 65, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 ); // camera, you can modify perspective and angle - Nicolas
+					camera.position.z = 250; //Default was 400, at 200 the camera is inside the flock initialization
 
-				camera = new THREE.PerspectiveCamera( 65, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 ); // camera, you can modify perspective and angle - Nicolas
-				camera.position.z = 250; //Default was 400, at 200 the camera is inside the flock initialization
+					scene = new THREE.Scene();
 
-				scene = new THREE.Scene();
+					light3.position.set (0, 400, 250);
+					scene.add(light3);
 
-				light.position.set (0, 1000, 250);
-				scene.add(light);
-			
-				light1.position.set (0, 0, 450);
-				scene.add(light1);
+					birds = [];
+					boids = [];
+					//This is the count, if i<200, there will be 199 birds on the screen
+					for ( var i = 0; i < 50; i ++ ) {
 
-				light2.position.set (0, -500, 400);
-				scene.add(light2);
+						boid = boids[ i ] = new Boid();
+						boid.position.x = Math.random() * 400 - 200;
+						boid.position.y = Math.random() * 400 - 200;
+						boid.position.z = Math.random() * 400 - 200;
+						boid.velocity.x = Math.random() * 2 - 1;
+						boid.velocity.y = Math.random() * 2 - 1;
+						boid.velocity.z = Math.random() * 2 - 1;
+						boid.setAvoidWalls( true );
+						boid.setWorldSize( 500, 500, 400 );
 
-				birds = [];
-				boids = [];
-				//This is the count, if i<200, there will be 199 birds on the screen
-				for ( var i = 0; i < 100; i ++ ) {
+						bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshLambertMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
+						bird.phase = Math.floor( Math.random() * 62.83 );
+						scene.add( bird ); // Yes, the bird is being added to the scene here, I can possibly copy this code to have a single red bird.
+				 	}
+				 }else{
 
-					boid = boids[ i ] = new Boid();
-					boid.position.x = Math.random() * 400 - 200;
-					boid.position.y = Math.random() * 400 - 200;
-					boid.position.z = Math.random() * 400 - 200;
-					boid.velocity.x = Math.random() * 2 - 1;
-					boid.velocity.y = Math.random() * 2 - 1;
-					boid.velocity.z = Math.random() * 2 - 1;
-					boid.setAvoidWalls( true );
-					boid.setWorldSize( 500, 500, 400 );
+					camera = new THREE.PerspectiveCamera( 65, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 ); // camera, you can modify perspective and angle - Nicolas
+					camera.position.z = 250; //Default was 400, at 200 the camera is inside the flock initialization
 
-					bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshLambertMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
-					bird.phase = Math.floor( Math.random() * 62.83 );
-					scene.add( bird ); // Yes, the bird is being added to the scene here, I can possibly copy this code to have a single red bird.
+					scene = new THREE.Scene();
 
+					light.position.set (0, 1000, 250);
+					scene.add(light);
+				
+					light1.position.set (0, 0, 450);
+					scene.add(light1);
+
+					light2.position.set (0, -500, 400);
+					scene.add(light2);
+
+					birds = [];
+					boids = [];
+					//This is the count, if i<200, there will be 199 birds on the screen
+					for ( var i = 0; i < 150; i ++ ) {
+
+						boid = boids[ i ] = new Boid();
+						boid.position.x = Math.random() * 400 - 200;
+						boid.position.y = Math.random() * 400 - 200;
+						boid.position.z = Math.random() * 400 - 200;
+						boid.velocity.x = Math.random() * 2 - 1;
+						boid.velocity.y = Math.random() * 2 - 1;
+						boid.velocity.z = Math.random() * 2 - 1;
+						boid.setAvoidWalls( true );
+						boid.setWorldSize( 500, 500, 400 );
+
+						bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshLambertMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
+						bird.phase = Math.floor( Math.random() * 62.83 );
+						scene.add( bird ); // Yes, the bird is being added to the scene here, I can possibly copy this code to have a single red bird.
+				  }
+				 
 
 				}
 
