@@ -325,7 +325,7 @@ var Boid = function() {
 						boid.setAvoidWalls( true );
 						boid.setWorldSize( 500, 500, 400 );
 
-						bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshLambertMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
+						bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:0xffffff, side: THREE.DoubleSide } ) ); // single bird being generated
 						bird.phase = Math.floor( Math.random() * 62.83 );
 						scene.add( bird ); // Yes, the bird is being added to the scene here, I can possibly copy this code to have a single red bird.
 				 	}
