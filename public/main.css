@@ -106,6 +106,14 @@ canvas{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#ffd7ad', GradientType=0 );
 }
 
+#browseChatRooms{
+    position: absolute;
+    top: 10vh;
+    background: gold;
+    z-index: 999;
+}
+
+
 @media (max-width: 1278px){
     #intro{
         top:30%;

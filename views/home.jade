@@ -1,11 +1,6 @@
-doctype html
-html(lang='en')
-  head
-    title Ravens
-    link(rel='stylesheet', type='text/css', href='main.css')
-    script(src='https://code.jquery.com/jquery-3.2.1.js', integrity='sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=', crossorigin='anonymous')
-    link(href='https://fonts.googleapis.com/css?family=Great+Vibes', rel='stylesheet')
-    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet')
+extends layout
+
+block content
   body
     #landingPage
       #container
@@ -23,8 +18,14 @@ html(lang='en')
         p
           | Coded and Designed by 
           a(href='https://github.com/DevTrader', target='_blank') Nicolas Kao
+      
+      #browseChatRooms
+        div.browseWindow
+          h1.browseTitle Browse Chats
+
+          ul.browseArea
+            each room in rooms
+              li.browseList
+                a(href="room/#{room.id}" style="color: #{room.color}") #{room.name}
+
     script(type='text/javascript', src='main.js')
-
-
-
-
