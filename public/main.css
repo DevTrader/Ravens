@@ -31,7 +31,7 @@ body {
 }
 
 #intro a:visited {color:#0066d3;}
-#intro a:hover {color:white;}
+#intro a:hover {color:black;}
 
 #intro h1{
 	font-size: 6em;
@@ -54,8 +54,8 @@ body {
     width: 25%;
     max-width: 60%;
     text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.6s; /* Safari */
+    transition-duration: 0.6s;
     text-decoration: none;
     overflow: hidden;
     font-size: 2em;
@@ -107,6 +107,9 @@ canvas{
 }
 
 @media (max-width: 1278px){
+    #intro{
+        top:25%;
+    }
     #intro input{
         width: 80%;
         max-width: 80%;
