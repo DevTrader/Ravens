@@ -1,8 +1,11 @@
 extends layout
 
 block content
- h1 Browse Chats
- ul
-  each room in rooms
-   li.browseList
-    a(href="room/#{room.id}" style="color: #{room.color}") #{room.name}
+ div.browse
+  div.browseWindow
+   h1.browseTitle Browse Chats
+
+   ul.browseArea
+    each room in rooms
+     li.browseList
+      a(href="room/#{room.id}" style="color: #{room.color}") #{room.name}

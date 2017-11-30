@@ -1,6 +1,13 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+
+html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 a {
@@ -25,6 +32,43 @@ a {
 	animation: success 1s;
 }
 
+.browse{
+  height: 100%;
+  width: 100%;
+  background: rgba(147,206,222,1);
+  background: -moz-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 40%, rgba(255,215,173,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(147,206,222,1)), color-stop(40%, rgba(147,206,222,1)), color-stop(100%, rgba(255,215,173,1)));
+  background: -webkit-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 40%, rgba(255,215,173,1) 100%);
+  background: -o-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 40%, rgba(255,215,173,1) 100%);
+  background: -ms-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 40%, rgba(255,215,173,1) 100%);
+  background: linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 40%, rgba(255,215,173,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#ffd7ad', GradientType=0 );
+}
+
+.browseWindow{
+  display: block;
+  width: 1000px;
+  height: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+  background: #ededed;
+  border-radius: 15px;
+
+}
+
+.browseTitle{
+  font-size: 4em;
+  margin: 0;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.browseArea{
+  padding-top: 50px;
+  padding-left: 100px;
+}
+
 .browseList {
   list-style: none;
   padding-top: 10px;
@@ -34,12 +78,13 @@ a {
 .browseList a {
   text-decoration: none;
   transition: all 0.4s;
+  padding-right: 100px; 
 }
 
 .browseList a:hover{
-  background: #eaeaea;
-  padding-right: 200px;
+  background: #f7f7f7;
   border-right: 10px solid orange;
+
 }
 
 #roomName{
@@ -49,4 +94,20 @@ a {
 #roomName:hover{
   cursor: pointer;
   color: limegreen;
+}
+
+@media (max-width: 1000px){
+  .browseWindow{
+    width: 100%;
+  }
+
+  .browseList a {
+     display: block;
+     width: 100%;
+     padding-right: 0px; 
+  }
+
+  .browseArea{
+    padding-left: 10px;
+  }
 }
