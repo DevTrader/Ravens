@@ -10,6 +10,14 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render('home');
     //response.sendFile(__dirname + '/public/index.html');
+    chatRoom
+        .find()
+        .exec()
+        .then(rooms => {
+            console.log(rooms);
+            res.render('browse', {rooms:rooms});
+        })
+        .catch(err =>{throw err});
 });
 
 // Create Room 

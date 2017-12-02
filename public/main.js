@@ -14,8 +14,16 @@ $('document').ready(function() {
     });
 
   $('#browseBtn').click(function(){
-  	window.location = '/browse';
+  	//window.location = '/browse';
+    $('#browseContent').css("display", "inline-block");
+    $('#browseContent').addClass("slideIn");
+    $('#browseContent').removeClass("slideOut");
   })
+
+  $('#close>p').click(function(){
+    $('#browseContent').addClass("slideOut");
+    $('#browseContent').removeClass("slideIn");
+  });
 
   var contents = $('#roomName').html();
 
@@ -43,6 +51,7 @@ $('document').ready(function() {
    
       }
   });
+
 
 
 
