@@ -15,7 +15,7 @@ $('document').ready(function() {
 
   $('#browseBtn').click(function(){
   	//window.location = '/browse';
-    $('#browseContent').css("display", "inline-block");
+    $('#browseContent').css("display", "block");
     $('#browseContent').addClass("slideIn");
     $('#browseContent').removeClass("slideOut");
   })
