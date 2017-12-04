@@ -23,6 +23,9 @@ $('document').ready(function() {
   $('#close>p').click(function(){
     $('#browseContent').addClass("slideOut");
     $('#browseContent').removeClass("slideIn");
+    setTimeout(function() {
+      $('#browseContent').css("display", "none");
+    }, 1000);
   });
 
   var contents = $('#roomName').html();
