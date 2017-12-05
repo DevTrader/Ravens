@@ -8,14 +8,14 @@ const router = express.Router();
 
 //Render Landing Page
 router.get('/', (req, res) => {
-    res.render('home');
+    // res.render('home');
     //response.sendFile(__dirname + '/public/index.html');
     chatRoom
         .find()
         .exec()
         .then(rooms => {
             console.log(rooms);
-            res.render('browse', {rooms:rooms});
+            res.render('home', {rooms:rooms});
         })
         .catch(err =>{throw err});
 });

@@ -25,10 +25,18 @@ html(lang='en')
           | Coded and Designed by 
           a(href='https://github.com/DevTrader', target='_blank') Nicolas Kao
     script(type='text/javascript', src='main.js')
+    script(src='https://cdn.socket.io/socket.io-1.2.0.js')
+    script(type='text/javascript', src='js/socket.js')
 
     #browseContent
       #close 
         p X
+      ul.browseArea
+        each room in rooms
+          li.browseList
+            a(href="room/#{room.id}" style="color: #{room.color}") #{room.name}
+            div(id="#{room.id}")
+
 
 
 

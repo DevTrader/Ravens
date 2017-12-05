@@ -1,15 +1,22 @@
 extends layout
 
-link(rel='stylesheet', type='text/css', href='chatRoomMain.css')
+ 
 
 block content
-
+ 
  h1#roomName(contenteditable='true') #{room.name}
+ 
+ #messageArea
+  ul#messages
+  each chat in room.chats
+   li #{chat.msg}
+  form(action='')
+    input#m(autocomplete='off')
+    button Send
 
- ul#messages
- each chat in room.chats
-  li #{chat.msg}
- form(action='')
-   input#m(autocomplete='off')
-   button Send
-
+ #browseContainer
+  ul.browseArea
+   each room in rooms
+    li.browseList
+     a(href="room/#{room.id}" style="color: #{room.color}") #{room.name}
+     div(id="#{room.id}")
