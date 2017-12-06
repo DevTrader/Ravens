@@ -1,6 +1,11 @@
 //onclick="$('canvas').css('display', 'none'); $('#landingPage').css('display', 'none'); $('body').css('overflow', 'visible')" For landing page to go away.
 $('document').ready(function() {
 
+//Lock screen orientation
+  $(window).on("orientationchange",function(){
+    event.stopPropagation();
+  }); 
+
   $('#startNewBtn').click(function(){
   	$.ajax({ 
           url: '/createRoom',
