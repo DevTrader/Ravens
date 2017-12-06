@@ -9,7 +9,7 @@ block content
   ul#messages
   each chat in room.chats
    li #{chat.msg}
-  form(action='')
+  form#chatForm(action='')
     input#m(autocomplete='off')
     button Send
 

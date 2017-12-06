@@ -45,7 +45,7 @@ a {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#ffd7ad', GradientType=0 );
 }
 
-.browseWindow{
+/*.browseWindow{
   display: block;
   width: 1000px;
   height: 80%;
@@ -55,7 +55,7 @@ a {
   background: #ededed;
   border-radius: 15px;
 
-}
+}*/
 
 .browseTitle{
   font-size: 4em;
@@ -96,7 +96,7 @@ a {
   color: limegreen;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1312px){
   .browseWindow{
     width: 100%;
   }
@@ -109,5 +109,8 @@ a {
 
   .browseArea{
     padding-left: 10px;
+    height: 70%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
