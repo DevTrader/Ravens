@@ -1,6 +1,5 @@
 extends layout
 
- 
 
 block content
  
@@ -14,9 +13,4 @@ block content
     input#m(autocomplete='off')
     button Send
 
- #browseContainer
-  ul.browseArea
-   each room in rooms
-    li.browseList
-     a(href="room/#{room.id}" style="color: #{room.color}") #{room.name}
-     div(id="#{room.id}")
+

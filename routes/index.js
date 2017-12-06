@@ -9,7 +9,7 @@ const router = express.Router();
 //Render Landing Page
 router.get('/', (req, res) => {
     // res.render('home');
-    //response.sendFile(__dirname + '/public/index.html');
+    // response.sendFile(__dirname + '/public/index.html');
     chatRoom
         .find()
         .exec()
@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
         })
         .catch(err =>{throw err});
 });
+
 
 // Create Room 
 router.post('/createRoom', (req, res) => {
@@ -46,16 +47,26 @@ router.get('/room/:id', (req, res) => {
         })
         .catch(err =>{throw err});
 
+    // chatRoom
+    //     .find()
+    //     .exec()
+    //     .then(rooms => {
+    //         console.log(rooms);
+    //         res.render('chatroom', {rooms:rooms});
+    //     })
+    //     .catch(err =>{throw err});
+
 });
 
 //Populate Browse Page with Existing Rooms
 router.get('/browse', (req, res) => {
+    console.log('browse');
     chatRoom
         .find()
         .exec()
         .then(rooms => {
             console.log(rooms);
-            res.render('browse', {rooms:rooms});
+            // res.render('layout', {rooms:rooms});
         })
         .catch(err =>{throw err});
 

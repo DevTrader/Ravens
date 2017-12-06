@@ -41,6 +41,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
+app.locals.test = 'test';
+var test = 'test2';
+
+
 // passport config
 var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
@@ -48,8 +52,8 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-//mongoose.connect('mongodb://localhost/chat');
-mongoose.connect('mongodb://nicolaskao:nico552867@ds243285.mlab.com:43285/thinkful');
+mongoose.connect('mongodb://localhost/chat');
+//mongoose.connect('mongodb://nicolaskao:nico552867@ds243285.mlab.com:43285/thinkful');
 console.log("Hello Again!");
 
 // catch 404 and forward to error handler
