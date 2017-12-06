@@ -109,6 +109,7 @@ canvas {
     background: #b72c2c;
     font-size: 24px;
     position: absolute;
+    z-index: 999;
     right: 2%;
     margin-top: 10px;
     padding: 10px 5px;
@@ -128,7 +129,7 @@ canvas {
     height: 90%;
     width: 70%;
     background: white;
-    z-index: 999;
+    z-index: 99;
     display: none;
     left: 50%;
     top: 50%;
@@ -271,6 +272,7 @@ canvas {
       text-align: center;
       right: 0;
       left: 0;
+      z-index: 990;
     }
 
     /* if landscape mode is detected, rotate the entire site -90 degrees to hint rotating to portrait */
