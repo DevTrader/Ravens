@@ -277,12 +277,14 @@ canvas {
 
     /* if landscape mode is detected, rotate the entire site -90 degrees to hint rotating to portrait */
   @media (orientation: landscape) {
-    body {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
+    html {
       transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
     }
   }
 }
