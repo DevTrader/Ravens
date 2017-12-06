@@ -3,7 +3,7 @@ $('document').ready(function() {
 
 //Lock screen orientation
   $(window).on("orientationchange",function(){
-    event.stopPropagation();
+    location.reload();
   }); 
 
   $('#startNewBtn').click(function(){
