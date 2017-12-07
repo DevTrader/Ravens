@@ -276,7 +276,7 @@ canvas {
     }
 
     /* if landscape mode is detected, rotate the entire site -90 degrees to hint rotating to portrait */
-  @media (orientation: landscape) {
+/*  @media (orientation: landscape) {
     html {
       transform: rotate(-90deg) !important;
       transform-origin: left top !important;
@@ -286,5 +286,5 @@ canvas {
       top: 100% !important;
       left: 0 !important;
     }
-  }
+  }*/
 }

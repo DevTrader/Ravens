@@ -84,6 +84,7 @@ a {
 .browseList a:hover{
   background: #f7f7f7;
   border-right: 10px solid orange;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
 
 }
 
