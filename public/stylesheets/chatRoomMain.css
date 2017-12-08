@@ -1,9 +1,36 @@
-
+#m, #send{
+	border-radius: 50px;
+	border: 1px solid black;
+}
 
 #messageArea{
 	width: 60%;
+	font-size: 16px;
+	height: 90%;
+	overflow-y: scroll;
 }
 
 #chatForm{
 	width: 60%;
+	background: white;
+}
+
+@media (max-width: 1312px) {
+	#chatForm{
+	width: 100%;
+   }
+	#roomName{
+		font-size: 2em;
+	}
+	#send{
+		width: 25%;
+	}
+	#m{
+		width: 70%;
+	}
+	#messageArea{
+		width: 100%;
+		height: 85%;
+    	overflow-y: scroll;
+	}
 }

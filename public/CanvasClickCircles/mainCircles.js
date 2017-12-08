@@ -19,7 +19,7 @@ socket.on('draw', function(p){
     // socketMouse.y = p[1];
 });
 
-let canvas = document.querySelector('canvas');
+let canvas = document.getElementById('circlesCanvas');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -27,7 +27,7 @@ canvas.height = window.innerHeight;
 let c = canvas.getContext('2d');
 //console.log(c);
 
-let maxRadius = 200; 
+let maxRadius = 110; 
 //let minRadius = Math.random() * 8 + 1;
 
 let colorArray = [
@@ -141,7 +141,7 @@ function init(){
 	for(let i = 0; i < local_data.length; i++){
 		let x, y, dx, dy, radius, chatroom;
 
-		radius = Math.random() * (local_data[i].chats.length * 10 )+ 15; // Absolute minimum is now 1
+		radius = (local_data[i].chats.length * 1.7) + 15;
 		x = Math.random() * (innerWidth - radius * 2) + radius; // so it doesnt spawn beyond the canvas limits;
 		y = Math.random() * (innerHeight - radius * 2) + radius;
 		dx = (Math.random() - 0.5) * 1;

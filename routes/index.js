@@ -115,5 +115,12 @@ router.put('/updateRoom/:id', (req, res) => {
 
 })
 
+//How do I send the request
+// router.delete('/room/:id', (req, res) => {
+//     chatRoom
+//     .delete(red.params.id)
+//     .catch(err =>{throw err});
+// })
+
 
 module.exports = router;
