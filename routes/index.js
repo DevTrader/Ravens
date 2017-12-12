@@ -93,7 +93,6 @@ function randomEl(list) {
 var adjectives = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
 var nouns = ["Ninja", "Chair", "Pancake", "Statue", "Unicorn", "Rainbows", "Laser", "Senor", "Bunny", "Captain", "Nibblets", "Cupcake", "Carrot", "Gnomes", "Glitter", "Potato", "Salad", "Toejam", "Curtains", "Beets", "Toilet", "Exorcism", "Stick Figures", "Mermaid Eggs", "Sea Barnacles", "Dragons", "Jellybeans", "Snakes", "Dolls", "Bushes", "Cookies", "Apples", "Ice Cream", "Ukulele", "Kazoo", "Banjo", "Opera Singer", "Circus", "Trampoline", "Carousel", "Carnival", "Locomotive", "Hot Air Balloon", "Praying Mantis", "Animator", "Artisan", "Artist", "Colorist", "Inker", "Coppersmith", "Director", "Designer", "Flatter", "Stylist", "Leadman", "Limner", "Make-up Artist", "Model", "Musician", "Penciller", "Producer", "Scenographer", "Set Decorator", "Silversmith", "Teacher", "Auto Mechanic", "Beader", "Bobbin Boy", "Clerk", "Station Attendant", "Foreman", "Maintenance Engineering", "Mechanic", "Miller", "Moldmaker", "Panel Beater", "Patternmaker", "Plant Operator", "Plumber", "Sawfiler", "Shop Foreman", "Soaper", "Stationary Engineer", "Wheelwright", "Woodworkers", "Giraffes", "Elephant", "Alien", "Raven", "Dog", "Cat", "Fish", "Eagle", "Shark"];
 
-
 router.post('/room/chatMsg', (req, res) => {
     console.log(req.body);
     chatRoom.update({_id: req.body.room}, {$push: {chats: req.body}})
@@ -102,6 +101,10 @@ router.post('/room/chatMsg', (req, res) => {
             console.log(rooms);
         })
     .catch(err =>{throw err});
+  
+    
+
+
 });
 
 router.put('/updateRoom/:id', (req, res) => {
@@ -115,12 +118,16 @@ router.put('/updateRoom/:id', (req, res) => {
 
 })
 
-//How do I send the request
-// router.delete('/room/:id', (req, res) => {
-//     chatRoom
-//     .delete(red.params.id)
-//     .catch(err =>{throw err});
-// })
+//If no messages posted during X time, initiate Timer Countdown (5 days), 
+//if message posted then reset timer interval / if timer reaches 0 delete room. 
+router.get('/delete/:id', (req, res) => {
+    chatRoom
+    .remove({_id: req.params.id})
+    .catch(err =>{throw err});
+    res.send('Room ' + req.params.id + ' deleted');
+})
+
+
 
 
 module.exports = router;

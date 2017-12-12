@@ -225,6 +225,8 @@ canvas {
   color: gray;
 }
 
+
+
 @media (max-width: 1312px) {
     #intro {
         top: 35%;

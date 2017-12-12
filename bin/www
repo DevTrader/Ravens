@@ -1,5 +1,8 @@
+const chatRoom = require('../models/chatroom');
 
+let int;
 
+let timeOut = {};
 
 /**
  * Module dependencies.
@@ -67,6 +70,22 @@ io.on('connection',function(socket){
 
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
+
+let time = 500;
+    clearInterval(timeOut[msg.url]);
+    timeOut[msg.url] = setInterval(()=>{
+          time--;
+          //console.log(time, timeOut, 'hi');
+          io.emit('time', time, msg);
+          if(time < 1){
+            time = 0;
+            deleteChat(msg.url);
+            io.emit('deleted', msg);
+            clearInterval(timeOut[msg.url]);
+          };
+        
+      }, 10);
+
   });
 
    socket.on('typing', function(msg){
@@ -164,15 +183,33 @@ convos = [
      'hi',
      'yo',
      'sup',
-     'nothin' 
+     'nothin much and you?',
+     'just killing time'
    ]},
    {'messages':[
      'ola',
-     'comoesta',
-     'bein tu',
+     'como vai?',
+     'bem, e voce?',
      'magnifico' 
    ]},  
+   {'messages':[
+     'salut',
+     'Comment allez-vous?',
+     'bien et toi?',
+     'très bien' 
+   ]},
   
 ]
+
+
+
+
+function deleteChat(id){
+    chatRoom
+    .remove({_id: id})
+    .catch(err =>{throw err});
+    console.log('Room ' + id + ' deleted');
+
+};
 
 

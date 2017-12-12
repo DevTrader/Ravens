@@ -19,14 +19,18 @@
         });
 
         socket.on('chat message', function(msg){
+
+          // $('#globalMessages').append($('<li class='globalMessage'>').text(msg.text)); //<- Why isn't this working?
+
           console.log(msg);
-          if(msg.url == room){
+          if(msg.url == room && msg.text != ''){
             $('#messages').append($('<li>').text(msg.text));
             window.scrollTo(0, document.body.scrollHeight);
           }else{
             $(`#${msg.url}`).text(msg.text);
             console.log(msg);
           }
+
         });
 
         socket.on('typing', function(msg){
@@ -44,6 +48,20 @@
         })
 
         socket.emit('start', {text: "testing", url: room});
+
+        socket.on('time', function(time, msg){
+          if(msg.url == room){
+            $('#time').html('Chat life: ' + time);
+          };
+
+        socket.on('deleted', (msg) => {
+          if(msg.url == room){
+            window.location.href = '/';
+          };
+        });
+          
+        });
+
 
         // $('form').submit(function(){
         //   socket.emit('chat message', $('#m').val());
