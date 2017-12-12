@@ -58,6 +58,7 @@
 	bottom: 0;
 	font-size: 2em;
 	color: red;
+	right: 0;
 }
 
 @media (max-width: 1312px) {

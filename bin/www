@@ -71,7 +71,7 @@ io.on('connection',function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
 
-let time = 500;
+let time = 90000;
     clearInterval(timeOut[msg.url]);
     timeOut[msg.url] = setInterval(()=>{
           time--;
