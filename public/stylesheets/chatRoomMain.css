@@ -53,12 +53,25 @@
 }
 
 #time{
+	visibility: hidden;
+}
+
+#text{
 	position: absolute;
 	z-index: 9999;
-	bottom: 0;
-	font-size: 2em;
+	bottom: -10px;
+	font-size: 1.8em;
+	color: black;
+	right: 500px;
+}
+#timer{
+	position: absolute;
+	z-index: 9999;
+	font-size: 1em;
 	color: red;
-	right: 0;
+	left: 170px;
+	bottom: 0px;
+	font-family: monospace;
 }
 
 @media (max-width: 1312px) {

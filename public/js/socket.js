@@ -51,7 +51,8 @@
 
         socket.on('time', function(time, msg){
           if(msg.url == room){
-            $('#time').html('Chat life: ' + time);
+            $('#timer').html(' ' + time);
+            $('#time').css('visibility', 'visible');
           };
 
         socket.on('deleted', (msg) => {
