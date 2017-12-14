@@ -234,6 +234,9 @@ canvas {
 
 
 @media (max-width: 1312px) {
+    #circlesAnchor{
+        display: none;
+    }
     html{
         overflow-y:scroll;
     }
