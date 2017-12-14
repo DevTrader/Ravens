@@ -225,6 +225,12 @@ canvas {
   color: gray;
 }
 
+#circlesCanvas{
+    height: 100%;
+    width: 100%;
+    background: white;
+}
+
 
 
 @media (max-width: 1312px) {
