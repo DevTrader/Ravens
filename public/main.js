@@ -30,7 +30,7 @@ $('document').ready(function() {
     $('#browseContent').removeClass("slideIn");
     setTimeout(function() {
       $('#browseContent').css("display", "none");
-    }, 1000);
+    }, 400);
   });
 
 // handles global button on mobile

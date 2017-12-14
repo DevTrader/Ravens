@@ -210,10 +210,10 @@ canvas {
     }
 }
 .slideOut {
-    -webkit-animation: browseSlideOut 1s forwards;
-    -moz-animation: browseSlideOut 1s forwards;
-    -o-animation: browseSlideOut 1s forwards;
-    animation: browseSlideOut 1s forwards;
+    -webkit-animation: browseSlideOut 0.4s forwards;
+    -moz-animation: browseSlideOut 0.4s forwards;
+    -o-animation: browseSlideOut 0.4s forwards;
+    animation: browseSlideOut 0.4s forwards;
 }
 
 #circlesAnchor{
