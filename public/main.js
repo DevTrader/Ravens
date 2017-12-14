@@ -33,6 +33,24 @@ $('document').ready(function() {
     }, 1000);
   });
 
+// handles global button on mobile
+  $('#globalBtn').click(function(){
+    //window.location = '/browse';
+    $('#globalChat').css("display", "inline-block");
+    $('#closeGlobal').css("display", "inline-block");
+    $('#globalChatTitle').css("display", "inline-block");
+    
+
+  })
+
+  $('#closeGlobal').click(function(){
+
+    $('#closeGlobal').css("display", "none");
+    $('#globalChat').css("display", "none");
+    $('#globalChatTitle').css("display", "none");
+
+  });
+
   var contents = $('#roomName').html();
 
   $('#roomName').blur(function() {

@@ -228,6 +228,9 @@ canvas {
 
 
 @media (max-width: 1312px) {
+    html{
+        overflow-y:scroll;
+    }
     #intro {
         top: 35%;
     }

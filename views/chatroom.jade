@@ -5,6 +5,9 @@ block content
  
  h1#roomName(contenteditable='true') #{room.name}
  
+ #globalBtn
+  p G
+
  #messageArea
   ul#history
   each chat in room.chats
@@ -14,8 +17,15 @@ block content
  form#chatForm(action='')
   input#m(autocomplete='off')
   button#send Send
+ 
+ #closeGlobal
+  p X
+  
+ #globalChatTitle
+  p Global Chat
 
  #globalChat
+
   ul#globalMessages
 
  #time
