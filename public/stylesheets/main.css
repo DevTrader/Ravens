@@ -281,7 +281,7 @@ canvas {
     }
     .browseArea {
         padding-left: 10px;
-        height: 85%;
+        height: 82%;
         overflow-y: scroll;
         overflow-x: hidden;
     }
