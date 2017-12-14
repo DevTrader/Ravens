@@ -231,6 +231,9 @@ canvas {
     html{
         overflow-y:scroll;
     }
+    canvas{
+        height: 110%;
+    }
     #intro {
         top: 35%;
     }
