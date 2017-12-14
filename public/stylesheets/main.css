@@ -231,11 +231,9 @@ canvas {
     html{
         overflow-y:scroll;
     }
-    canvas{
-        height: 110%;
-    }
+
     #intro {
-        top: 35%;
+        top: 30%;
     }
     #intro input {
         width: 80%;
@@ -251,6 +249,11 @@ canvas {
     }
     #intro h1 {
         font-size: 5em;
+    }
+    #intro h2 {
+        font-size: 1.2em;
+        width: 80%;
+        margin: 20px auto;
     }
     #browseContent {
         height: 100%;
