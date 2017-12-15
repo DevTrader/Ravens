@@ -3,6 +3,21 @@
 	border: 1px solid black;
 }
 
+#roomName{
+	width: 800px;
+	position: relative;
+	left:50%;
+	right: 50%;
+	transform: translate(-50%, 0%);
+
+}
+
+#homeBtn{
+	position: absolute;
+	top:0px;
+	left: 10px;
+}
+
 #messageArea{
 	width: 60%;
 	font-size: 16px;
@@ -18,17 +33,21 @@
 
 #globalChat{
     width: 40%;
-    height: 50%;
+    height: 90%;
     overflow-y: scroll;
     float: right;
     background: #e8e8e8;
-	position: relative;
-    bottom: 50%;
+	position: absolute;
+    bottom: 0px;
+    right: 0px;
     border-top: 2px solid black;
 }
 
 #globalChatTitle{
-
+	position: absolute;
+	top: 7%;
+	right: 16%;
+	font-size: 25px;
 }
 
 #closeGlobal{

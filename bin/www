@@ -4,6 +4,7 @@ let int;
 
 let timeOut = {};
 
+
 /**
  * Module dependencies.
  */
@@ -70,11 +71,13 @@ io.on('connection',function(socket){
 
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
+
+
     
-let time = 90000;
+let time = 900000;
     clearInterval(timeOut[msg.url]);
     timeOut[msg.url] = setInterval(()=>{
-          time--;
+          time -= 100;
           //console.log(time, timeOut, 'hi');
           io.emit('time', time, msg);
           if(time < 1){
@@ -84,7 +87,7 @@ let time = 90000;
             clearInterval(timeOut[msg.url]);
           };
         
-      }, 10);
+      }, 100);
 
   });
 

@@ -20,7 +20,7 @@
 
         socket.on('chat message', function(msg){
 
-          // $('#globalMessages').append($('<li class='globalMessage'>').text(msg.text)); //<- Why isn't this working?
+         $('#globalMessages').append($('<li class="globalMessage">').text(msg.text));
 
           console.log(msg);
           if(msg.url == room && msg.text != ''){
@@ -51,7 +51,7 @@
 
         socket.on('time', function(time, msg){
           if(msg.url == room){
-            $('#timer').html(' ' + time);
+            $('#timer').html(' ' + msToTime(time));
             $('#time').css('visibility', 'visible');
           };
 
@@ -63,6 +63,18 @@
           
         });
 
+function msToTime(duration) {
+        var milliseconds = parseInt((duration%1000)/100)
+            , seconds = parseInt((duration/1000)%60)
+            , minutes = parseInt((duration/(1000*60))%60)
+            , hours = parseInt((duration/(1000*60*60))%24);
+
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+        return minutes + ":" + seconds + "." + milliseconds;
+    }
 
         // $('form').submit(function(){
         //   socket.emit('chat message', $('#m').val());
