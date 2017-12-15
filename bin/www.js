@@ -23,7 +23,6 @@ app.set('port', port);
 
 
 
-//var app = require('express')();
 
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -38,34 +37,7 @@ io.on('connection',function(socket){
   
 
   socket.on('start', function(msg){ 
-  console.log(msg);
 
-  console.log('')
-  var rand = convos[Math.floor(Math.random() * convos.length)];
-
-  let lastTime = 1000; 
-  rand.messages.forEach((m,i)=>{
-    lastTime = 2000*Math.random()+lastTime+ 500; 
-    console.log(lastTime)
-    setTimeout(() => { console.log(m); io.emit('chat message', {
-    text:m,
-    url: msg.url});},lastTime)
-  });
-   
-    
- /* var tmp = conversation;
-  var v = new Array();
-  for (i = 0; i < conversation.length; i++) {
-      var j = 0;
-      tmp[i] = setInterval(function () {
-          if (j < 10 + (i * 5)) {
-              alert(i + ' ' + j);
-              j++;
-          } else {
-              clearInterval(tmp[i])
-          }
-      }, 1000);
-  } */
 
   });
 
@@ -78,7 +50,7 @@ let time = 900000;
     clearInterval(timeOut[msg.url]);
     timeOut[msg.url] = setInterval(()=>{
           time -= 100;
-          //console.log(time, timeOut, 'hi');
+
           io.emit('time', time, msg);
           if(time < 1){
             time = 0;
@@ -106,7 +78,6 @@ let time = 900000;
  * Create HTTP server.
  */
 
-//var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -175,37 +146,6 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-const conversation = {
-  language : "Portuguese",
-  messages : ["Oi","Ola", "Como vai?", "Muito Bem e voce?", "Tambem"]
-};
-
-convos = [
-   {'messages':[
-     'hi',
-     'yo',
-     'sup',
-     'nothin much and you?',
-     'just killing time'
-   ]},
-   {'messages':[
-     'ola',
-     'como vai?',
-     'bem, e voce?',
-     'magnifico' 
-   ]},  
-   {'messages':[
-     'salut',
-     'Comment allez-vous?',
-     'bien et toi?',
-     'très bien' 
-   ]},
-  
-]
-
-
-
 
 function deleteChat(id){
     chatRoom

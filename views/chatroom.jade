@@ -34,3 +34,6 @@ block content
   p#text Chatroom Life:
    span#timer
 
+ #{room.color}
+  script(type='text/javascript').
+   var color =!{JSON.stringify(room.color)}
