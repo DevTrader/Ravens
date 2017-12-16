@@ -39,6 +39,7 @@ $('document').ready(function() {
     $('#globalChat').css("display", "inline-block");
     $('#closeGlobal').css("display", "inline-block");
     $('#globalChatTitle').css("display", "inline-block");
+    $('#messageArea').css("display", "none");
     
 
   })
@@ -48,6 +49,7 @@ $('document').ready(function() {
     $('#closeGlobal').css("display", "none");
     $('#globalChat').css("display", "none");
     $('#globalChatTitle').css("display", "none");
+    $('#messageArea').css("display", "inline-block");
 
   });
 
