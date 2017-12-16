@@ -112,7 +112,7 @@
 	#roomName{
 		font-size: 18px;
 		max-width: 70vw;
-		margin: 25px 25px;
+		margin: 0px 25px;
 	}
 	#send{
 		width: 25%;
