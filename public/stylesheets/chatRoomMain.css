@@ -105,7 +105,10 @@
 	bottom: 0px;
 	font-family: monospace;
 }
-
+.globalMessage{
+	font-size: 14px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+}
 @media (max-width: 700px) {
 	#chatForm{
 		width: 100%;
