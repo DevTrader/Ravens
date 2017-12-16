@@ -50,6 +50,7 @@ body {
     border-left: 3px solid #3e76d1;
     padding: 30px;
     width: 30%;
+    min-width: 350px;
     max-width: 60%;
     text-align: center;
     -webkit-transition-duration: 0.6s;
@@ -233,7 +234,7 @@ canvas {
 
 
 
-@media (max-width: 1312px) {
+@media (max-width: 700px) {
     #circlesAnchor{
         display: none;
     }
