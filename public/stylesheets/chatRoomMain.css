@@ -111,7 +111,7 @@
    }
 	#roomName{
 		font-size: 18px;
-		max-width: 80vw;
+		max-width: 70vw;
 	}
 	#send{
 		width: 25%;
@@ -182,7 +182,7 @@
 	    font-size: 24px;
 	    z-index: 998;
 	    padding: 5% 5px;
-	    height: 10%;
+	    height: 64px;
 	    width: 82%;
 	    top: 0px;
 	    right:0px;
