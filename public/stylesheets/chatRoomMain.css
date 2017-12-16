@@ -128,7 +128,7 @@
 
 	#globalChat{
 		width: 100%;
-		height: calc(90vh - 64px);
+		height: calc(90vh - 114px);
 		border: none;
 		position: absolute;
 		top: 64px;
