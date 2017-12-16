@@ -128,10 +128,10 @@
 
 	#globalChat{
 		width: 100%;
-		height: calc(100vh - 64px);
+		height: calc(90vh - 64px);
 		border: none;
 		position: absolute;
-		bottom: 10vh;
+		top: 64px;
 		left: 0px;
 		display: none;
 
