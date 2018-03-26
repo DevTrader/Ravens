@@ -30,7 +30,7 @@ $(function() {
                 //Show all messages on global chat
                 $('#globalMessages').append($('<li class="globalMessage">').html('<a href="/room/' + msg.url + '" style="color:' + chatcolor + ';">' + msg.text + '</a>'));
                 //Filter all messages and render local chatroom ones
-                console.log(msg);
+                //console.log(msg);
                 if (msg.url == room && msg.text != '') {
                     $('#messages').append($('<li>').text(msg.text));
                     window.scrollTo(0, document.body.scrollHeight);
@@ -119,13 +119,13 @@ $(function() {
                 ];
 
             var rand = convos[Math.floor(Math.random() * convos.length)];
-            console.log(rand);
+            //console.log(rand);
             let lastTime = 1000;
             rand.messages.forEach((m, i) => {
                 lastTime = 2000 * Math.random() + lastTime + 500;
-                console.log(lastTime)
+                //console.log(lastTime)
                 setTimeout(() => {
-                    console.log(m);
+                    //console.log(m);
                     socket.emit('chat message', {
                         text: m,
                         url: room,
