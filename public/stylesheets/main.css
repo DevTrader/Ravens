@@ -42,6 +42,13 @@ body {
     color: #4c4c4c;
     font-weight: 200;
 }
+
+#intro h3 {
+    font-size: 1.3em;
+    color: #4c4c4c;
+    font-weight: 200;
+}
+
 #intro input {
     position: relative;
     background-color: #71a0ed;
