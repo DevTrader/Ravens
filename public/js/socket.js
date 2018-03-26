@@ -27,8 +27,9 @@ $(function() {
             socket.on('chat message', function(msg) {
                 let chatcolor;
                 msg.color ? chatcolor = msg.color : chatcolor = color;
+                //Show all messages on global chat
                 $('#globalMessages').append($('<li class="globalMessage">').html('<a href="/room/' + msg.url + '" style="color:' + chatcolor + ';">' + msg.text + '</a>'));
-
+                //Filter all messages and render local chatroom ones
                 console.log(msg);
                 if (msg.url == room && msg.text != '') {
                     $('#messages').append($('<li>').text(msg.text));

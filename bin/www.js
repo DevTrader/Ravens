@@ -45,7 +45,7 @@ io.on('connection',function(socket){
     io.emit('chat message', msg);
 
 
-    
+//Delete Chatroom on timer end
 let time = 900000;
     clearInterval(timeOut[msg.url]);
     timeOut[msg.url] = setInterval(()=>{
